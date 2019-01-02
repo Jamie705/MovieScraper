@@ -16,7 +16,10 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
-
+    imageLink: {
+        type: String,
+        required: false
+    },
     exerpt: {
         type: String,
         required: true

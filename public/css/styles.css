@@ -1,0 +1,39 @@
+body {
+  background-image: url("../images/filmReel.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+};
+
+#card-articles{
+    margin-bottom: 30px;
+    margin-left:10%;
+    border-radius: 12px;
+    background-color: grey;
+    color: cyan;
+}
+
+#notes {
+    background-color: black;
+    opacity:black 40%;
+    border-radius: 15px 3px;
+    color: azure;
+    padding: 10px;
+}
+
+h5, textarea, input {
+    color: antiquewhite;
+    text-align: center;
+}
+
+a {
+    font-size: 14px;
+}
+
+#articles{
+    margin-left: 48%;
+}
+
+#main-title{
+    text-align: center;
+}
