@@ -5,7 +5,7 @@ body {
   background-size: cover;
 };
 
-#card-articles{
+#hCard{
     margin-bottom: 30px;
     margin-left:10%;
     border-radius: 12px;
@@ -14,11 +14,14 @@ body {
 }
 
 #notes {
-    background-color: black;
-    opacity:black 40%;
+    display: none;
+    background-color:rgb(0, 38, 77);
+    opacity: 0.93;
     border-radius: 15px 3px;
     color: azure;
-    padding: 10px;
+    padding: 15px;
+    position: fixed;
+    margin: 20px auto;
 }
 
 h5, textarea, input {
@@ -26,14 +29,28 @@ h5, textarea, input {
     text-align: center;
 }
 
-a {
-    font-size: 14px;
+a,p {
+    font-size: 16px;
 }
 
 #articles{
-    margin-left: 48%;
+    margin-left: 50%;
 }
 
 #main-title{
     text-align: center;
+}
+#navBar{
+    background-color: black;
+    opacity: 0.90;
+    height: 80px;
+}
+
+button {
+    color: dimgray;
+    
+}
+
+.container{
+    margin: 5%;
 }

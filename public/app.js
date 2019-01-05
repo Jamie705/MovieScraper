@@ -1,21 +1,7 @@
-// Grab the articles as a json
-$.getJSON("/articles", function (data) {
-    // For each one
-    for (var i = 0; i < data.length; i++) {
-        // Display the apropos information on the page
-        $("#articles").append("<p data-id='" 
-            + data[i]._id + "'>" + "<br />" 
-            + data[i].title + "<br />" 
-            + data[i].exerpt + "<br />" 
-            + data[i].link + "</p>");
-    }
-});
-
-
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function () {
     // Empty the notes from the note section
-    $("#notes").empty();
+    $("#notes").empty().css("display","block");
     // Save the id from the p tag
     var thisId = $(this).attr("data-id");
 
@@ -29,22 +15,22 @@ $(document).on("click", "p", function () {
             console.log(data);
             // The title of the article
             $("#notes").append("<h5>" + data.title + "</h5>"
-            
-            // An input to enter a new title
-            + "<input id='titleinput' name='title' placeholder='Title of comment'></input>"
-            
-            // A textarea to add a new note body
-            + "<textarea id='bodyinput' name='body'></textarea>"
-            
-            // A button to submit a new note, with the id of the article saved to it
-            +"<button class='waves-effect' data-id=" + data._id + " id='savenote'>Save Comment</button>");
+
+                // An input to enter a new title
+                +"<input id='titleinput' name='title' placeholder='Title of comment'></input>"
+
+                // A textarea to add a new note body
+                +"<textarea id='bodyinput' name='body'></textarea>"
+
+                // A button to submit a new note, with the id of the article saved to it
+                +"<button class='waves-effect' data-id=" + data._id + " id='savenote'>Save Comment</button>");
 
             // If there's a note in the article
             if (data.note) {
                 // Place the title of the note in the title input
-                $("#titleinput").val(data.note.title);
+                $("#note-title").append(data.note.title);
                 // Place the body of the note in the body textarea
-                $("#bodyinput").val(data.note.body);
+                $("#note-body").append(data.note.body);
             }
         });
 });
@@ -80,17 +66,13 @@ $(document).on("click", "#savenote", function () {
 
 // When you click the latest movie  button
 $(document).on("click", "#scrape", function (data) {
-    // Grab the id associated with the article from the submit button
-    var thisId = $(this).attr("data-id");
-
     // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
             method: "GET",
-            url: "/scrape/" + thisId,
-            data: {
-                data
-            }
+            url: "/scrape/",
+            data: data
         })
+        
         // With that done
         .then(function (data) {
             // Log the response
@@ -98,3 +80,40 @@ $(document).on("click", "#scrape", function (data) {
         });
 
 });
+
+// When you click the TV news
+$(document).on("click", "#TvArticles", function (data) {
+    // Run a POST request to change the note, using what's entered in the inputs
+    $.ajax({
+            method: "GET",
+            url: "/TvArticles/",
+            data: data
+        })
+
+        // With that done
+        .then(function (data) {
+            // Log the response
+            console.log(data);
+        });
+
+});
+
+// When you click the delete button
+$(document).on("click", "#delete", function () {
+    // Grab the id associated with the article from the submit button
+    var thisId = $(this).attr("data-id");
+
+    //GET request to delete article
+    $.ajax({
+            method: "GET",
+            url: "/delete/" + thisId,
+         
+            success: function (response) {
+
+                console.log("Deleted" + thisId)
+                //reload page
+                location.reload(true);
+            }
+        })
+});
+
