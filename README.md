@@ -2,7 +2,7 @@
 This app will scrape articles from website and display them. Each article will be saved to database. You will be able to see Headline, Summary and URl to original article.
 
 Go to:
-=====link====
+http://nameless-spire-89680.herokuapp.com/
 to check out my app!
 
 ### Overview
