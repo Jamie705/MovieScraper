@@ -50,9 +50,8 @@ var routes = require("./controllers/routes.js");
 app.use(routes);
 
 // Start the server
-app.listen(PORT, function () {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
+app.listen(process.env.PORT || PORT, function () {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
 module.exports = app;
