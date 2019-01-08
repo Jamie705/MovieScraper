@@ -21,7 +21,7 @@ app.set("view engine", "handlebars");
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+// var PORT = process.env.PORT || 3000;
 
 // Configure middleware
 
@@ -38,7 +38,7 @@ app.use(express.static("public"));
 
 
 // Connect to the Mongo DB
-var MONGODB_URI = "mongodb://heroku_wf613lqw:P@ssword123@ds017258.mlab.com:17258/heroku_wf613lqw" || "mongodb://localhost/movieScrapper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/movieScrapper";
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true
@@ -49,9 +49,14 @@ mongoose.connect(MONGODB_URI, {
 var routes = require("./controllers/routes.js");
 app.use(routes);
 
-// Start the server
-app.listen(process.env.PORT || PORT, function () {
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+// // Start the server
+// app.listen(process.env.PORT || PORT, function () {
+//     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+// });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
 
 module.exports = app;
