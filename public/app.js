@@ -45,9 +45,9 @@ $(document).on("click", "#exerpt", function () {
             // If there's a note in the article
             if (data.note) {
                 // Place the title of the note in the title input
-                $("#titleinput").append(data.note.title);
+                $("#title-input").append(data.note.title);
                 // Place the body of the note in the body textarea
-                $("#bodyinput").append(data.note.body);
+                $("#body-input").append(data.note.body);
             }
         });
 });
