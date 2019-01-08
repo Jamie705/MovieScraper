@@ -14,7 +14,7 @@
             <div class="card horizontal" id="hCard">  
                 <div class="card-stacked">
                     <div class="card-content">
-                        <p class="card-text" data-id="{{this.id}}">{{this.exerpt}}</p><br>
+                        <p id="exerpt" class="card-text" data-id="{{this.id}}">{{this.exerpt}}</p><br>
                     </div>
                     <div class="card-action">
                         <a href="https://screenrant.com/{{this.link}}">https://screenrant.com/{{this.link}}</a>     
@@ -22,10 +22,15 @@
                 </div>
                 <button class="waves-effect btn-small grey darken-2" id="delete" data-id="{{this.id}}">Delete</button>
             </div>
-            <div>
-                <h5 class="note-title"></h5>
-                <p class="note-body"></p>
-            </div>    
+                {{!-- notes --}}
+                <div id="saved-notes">
+                    <h5 id="title-input"></h5>
+                    <p id="body-input"></p>
+                    {{!-- {{#each note}}
+                    <h5 id="title-input">{{note.title}}</h5>
+                    <p id="body-input">{{note.body}}</p>
+                    {{/each}} --}}
+                </div>    
             {{/each}}
         </div>
     </div>

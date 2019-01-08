@@ -1,0 +1,32 @@
+{{!-- Main Index --}}
+<div id="tv-title">
+    <h2>The Latest Tv News!!</h2>
+</div>
+
+{{!-- TV articles --}}
+<div class="row">
+    <div class="col m4" id="tv-notes">
+    </div>
+    <div id="card-articles col m8">
+        <div id="articles">
+            {{#each tvArticles}}
+            <h4>{{this.title}}</h4>
+            <div class="card horizontal" id="hCard">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p id="tv-exerpt" class="card-text" data-id="{{this.id}}">{{this.exerpt}}</p><br>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://screenrant.com/{{this.link}}">https://screenrant.com/{{this.link}}</a>
+                    </div>
+                </div>
+                <button class="waves-effect btn-small grey darken-2" id="tv-delete" data-id="{{this.id}}">Delete</button>
+            </div>
+            <div>
+                <h5 class="note-title"></h5>
+                <p class="note-body"></p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
