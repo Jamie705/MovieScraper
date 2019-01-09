@@ -38,12 +38,19 @@ app.use(express.static("public"));
 
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/movieScrapper";
+var MONGODB_URI = process.env.MONGODB_URI
+ || "mongodb://localhost/movieScrapper";
 
-mongoose.connect(MONGODB_URI, {
+
+// });
+mongoose.connect("mongodb://@ds017258.mlab.com:17258/heroku_wf613lqw", {
+    auth: {
+        user: "Jamie",
+        password: "P@ssword123"
+    },
     useNewUrlParser: true
-});
-
+    
+})
 //Routes
 //=================
 var routes = require("./controllers/routes.js");
