@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3001
+var PORT = process.env.PORT || 3001;
 
 // Configure middleware
 
@@ -44,7 +44,7 @@ var MONGODB_URI = process.env.MONGODB_URI
 
 if (MONGODB_URI) {
     //execute heroku
-    mongoose.connect(MONGODB_URI), {
+    mongoose.connect("mongodb://Jamie:P@ssword123@ds017258.mlab.com:17258/heroku_wf613lqw"), {
         useNewUrlParser: true
         }
     }
