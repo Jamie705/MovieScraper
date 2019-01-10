@@ -44,7 +44,7 @@ var MONGODB_URI = process.env.MONGODB_URI
 
 if (MONGODB_URI) {
     //execute heroku
-    mongoose.connect("mongodb://@ds017258.mlab.com:17258/heroku_wf613lqw"), {
+    mongoose.connect(MONGODB_URI), {
         useNewUrlParser: true
         }
     }
