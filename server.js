@@ -2,6 +2,7 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
+var dotenv = require("dotenv");
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -43,11 +44,7 @@ var MONGODB_URI = process.env.MONGODB_URI
 
 
 // });
-mongoose.connect("mongodb://@ds017258.mlab.com:17258/heroku_wf613lqw", {
-    // auth: {
-    //     user: "Jamie",
-    //     password: "P@ssword123"
-    // },
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true
     
 })
