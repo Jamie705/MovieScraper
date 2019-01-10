@@ -37,7 +37,6 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-
 // Connect to the Mongo DB
 var databaseUri = "mongodb://localhost/movieScrapper";
 
