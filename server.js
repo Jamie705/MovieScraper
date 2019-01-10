@@ -22,7 +22,7 @@ app.set("view engine", "handlebars");
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT 
+var PORT = process.env.PORT || 3001
 
 // Configure middleware
 
@@ -39,15 +39,20 @@ app.use(express.static("public"));
 
 
 // Connect to the Mongo DB
+var databaseUri = "mongodb://localhost/movieScrapper";
+
 var MONGODB_URI = process.env.MONGODB_URI
- || "mongodb://localhost/movieScrapper";
 
+if (MONGODB_URI) {
+    //execute heroku
+    mongoose.connect(MONGODB_URI), {
+        useNewUrlParser: true
+        }
+    }
+    else{
+    mongoose.connect(databaseUri);
+    } 
 
-// });
-mongoose.connect(MONGODB_URI || "mongodb://@ds017258.mlab.com:17258/heroku_wf613lqw",{
-    useNewUrlParser: true
-    
-})
 //Routes
 //=================
 var routes = require("./controllers/routes.js");
