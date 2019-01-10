@@ -21,7 +21,7 @@ app.set("view engine", "handlebars");
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT 
 
 // Configure middleware
 
@@ -44,10 +44,10 @@ var MONGODB_URI = process.env.MONGODB_URI
 
 // });
 mongoose.connect("mongodb://@ds017258.mlab.com:17258/heroku_wf613lqw", {
-    auth: {
-        user: "Jamie",
-        password: "P@ssword123"
-    },
+    // auth: {
+    //     user: "Jamie",
+    //     password: "P@ssword123"
+    // },
     useNewUrlParser: true
     
 })
