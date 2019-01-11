@@ -40,18 +40,25 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 var databaseUri = "mongodb://localhost/movieScrapper";
 
-var MONGODB_URI = process.env.MONGODB_URI
+// var MONGODB_URI = process.env.MONGODB_URI
 
-if (MONGODB_URI) {
-    //execute heroku
-    mongoose.connect(MONGODB_URI), {
-        useNewUrlParser: true
-        }
-    }
-    else{
-    mongoose.connect(databaseUri);
-    } 
+// if (MONGODB_URI) {
+//     //execute heroku
+//     mongoose.connect(MONGODB_URI), {
+//         useNewUrlParser: true
+//         }
+//     }
+//     else{
+//     mongoose.connect(databaseUri);
+//     } 
+mongoose.connect("mongodb://@ds017258.mlab.com:17258/heroku_wf613lqw", {
+    auth: {
+        user: "Jamie",
+        password: "P@ssword123"
+    },
+    useNewUrlParser: true
 
+})
 //Routes
 //=================
 var routes = require("./controllers/routes.js");
